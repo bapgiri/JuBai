@@ -1,0 +1,21 @@
+﻿@model JuBai.Models.Post
+
+@{
+    ViewData["Title"] = "Post Details";
+}
+
+<h1>@Model.Title</h1>
+
+<p>
+    <strong>Content:</strong> <br />
+    @Model.Content
+</p>
+
+<p>
+    <strong>CreatedAt:</strong> @Model.CreatedAt.ToShortDateString()
+</p>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>

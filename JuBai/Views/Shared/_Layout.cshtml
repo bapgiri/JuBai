@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - JuBai</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JuBai.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    @{
+        var controllerName = ViewContext.RouteData.Values["controller"]?.ToString() ?? string.Empty;
+    }
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">JuBai</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                
+                <li class="nav-item @(controllerName == "Post" ? "active" : "")">
+                    <a class="nav-link" href="@Url.Action("Index", "Post")">Posts</a>
+                </li>
+                <li class="nav-item @(controllerName == "Tag" ? "active" : "")">
+                    <a class="nav-link" href="@Url.Action("Index", "Tag")">Tags</a>
+                </li>
+                <li class="nav-item @(controllerName == "User" ? "active" : "")">
+                    <a class="nav-link" href="@Url.Action("Index", "User")">Users</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <header>
+       
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - JuBai - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
